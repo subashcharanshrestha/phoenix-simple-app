@@ -59,7 +59,7 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"
 
 
 config :discuss, Discuss.Endpoint,
@@ -68,8 +68,10 @@ config :discuss, Discuss.Endpoint,
  force_ssl: [rewrite_on: [:x_forwarded_proto]],
  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
+config :logger, level: :info
+
 config :discuss, Discuss.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABSE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "18"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
