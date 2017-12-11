@@ -60,3 +60,16 @@ config :logger, level: :info
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 import_config "prod.secret.exs"
+
+
+config :discuss, Discuss.Endpoint,
+ http:[port:{:system, "PORT"}],
+ url: [scheme: "https", host: "sheltered-coast-46019", port: 443],
+ force_ssl: [rewrite_on: [:x_forwarded_proto]],
+ secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+config :discuss, Discuss.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABSE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true
