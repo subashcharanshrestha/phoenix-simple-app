@@ -33,5 +33,5 @@ config :ueberauth, Ueberauth,
 	]
 
 config :ueberauth, Ueberauth.Strategy.Github.OAuth,
-	client_id: "fed85708141c465ebd9a",
-	client_secret: "41369065cbfbd633c8f43073ae30051cbfcc4fc3"
+	client_id: "7a5193707a177a099227",
+	client_secret: "87bc23387acd11a5290246cde293f94779138bbc"
