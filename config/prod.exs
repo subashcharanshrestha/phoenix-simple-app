@@ -63,7 +63,7 @@ config :logger, level: :info
 
 
 config :discuss, Discuss.Endpoint,
- http: [port:{:system, "PORT"}],
+ http: [port: {:system, "PORT"}],
  url: [scheme: "https", host: "sheltered-coast-46019", port: 443],
  force_ssl: [rewrite_on: [:x_forwarded_proto]],
  secret_key_base: System.get_env("SECRET_KEY_BASE")
